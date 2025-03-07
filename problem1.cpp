@@ -1,14 +1,5 @@
 #include <bits/stdc++.h>
 
-int digits(long long n) {
-    int count = 0;
-    while (n) {
-        n /= 10;
-        count++;
-    }
-    return count;
-}
-
 void extractor(int n, int* arr) {
     while(n>0) {
         int hlp = n%10;
