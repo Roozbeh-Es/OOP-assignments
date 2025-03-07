@@ -29,7 +29,7 @@ long long smallestNumber(int *arr) {
     }
     return small;
 }
-int biggestNumber(int *arr) {
+long long biggestNumber(int *arr) {
     int big = 0;
     for(int i=9;i>=0;i--) {
         if(arr[i]>0) {
