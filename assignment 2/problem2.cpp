@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 
-
 int main() {
-    std::vector<std::pair<int, std::string> > vec;
+    std::vector<std::pair<int, std::string>> vec;
 
     std::string s;
     while (getline(std::cin, s)) {
@@ -17,7 +16,6 @@ int main() {
         }
     }
 
-
     int k, t;
     std::cin >> k >> t;
 
@@ -25,40 +23,50 @@ int main() {
     int sum = 0;
     bool ans = false;
 
-    for (int i = 0; i < vec.size(); i++) {
-        if (ans)
-            break;
+    for (int i = 0; i <= vec.size() - k; i++) {
         if (vec[i].second == "Gold") {
             bool prob = false;
-            start = i + 1;
             sum = vec[i].first;
-            for (int j = 1; j <= k-1; j++) {
-                if (vec[i + j].second == "Gold") {
-                    sum += vec[i + j].first;
-                } else {
+
+            for (int j = 1; j < k; j++) {
+                if (i + j >= vec.size() || vec[i + j].second != "Gold") {
                     prob = true;
                     break;
                 }
+                sum += vec[i + j].first;
             }
-            if (sum == t && !prob) {
+
+            if (!prob && sum == t) {
                 ans = true;
-                std::cout << start << std::endl;
+                start = i + 1;
                 break;
             }
         }
     }
+
     if (!ans) {
-        int min = INT_MAX;
-        for (int i = 0; i < vec.size(); i++) {
-            int hlp = vec[i].first;
-            for (int j = 1; j <= k-1; j++) {
+        int minSum = INT_MAX;
+
+        for (int i = 0; i <= vec.size() - k; i++) {
+            int hlp = 0;
+
+            for (int j = 0; j < k; j++) {
+                if (i + j >= vec.size()) {
+                    break;
+                }
                 hlp += vec[i + j].first;
             }
-            if (hlp < min) {
-                min = hlp;
+
+            if (hlp < minSum) {
+                minSum = hlp;
                 start = i + 1;
             }
         }
+
+        std::cout << start << std::endl;
+    } else {
         std::cout << start << std::endl;
     }
+
+    return 0;
 }
