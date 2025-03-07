@@ -32,7 +32,7 @@ int main() {
             bool prob = false;
             start = i + 1;
             sum = vec[i].first;
-            for (int j = 1; j <= k; j++) {
+            for (int j = 1; j <= k-1; j++) {
                 if (vec[i + j].second == "Gold") {
                     sum += vec[i + j].first;
                 } else {
@@ -51,7 +51,7 @@ int main() {
         int min = INT_MAX;
         for (int i = 0; i < vec.size(); i++) {
             int hlp = vec[i].first;
-            for (int j = 1; j <= k; j++) {
+            for (int j = 1; j <= k-1; j++) {
                 hlp += vec[i + j].first;
             }
             if (hlp < min) {
