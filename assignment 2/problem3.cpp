@@ -17,8 +17,12 @@ int* pop(int *arr,int pos,int &currentSize) {
         if (i<pos)
             newArr[i] = arr[i];
         else if (i==pos) {
-            i++;
-            newArr[i] = arr[i];
+            if(pos!=currentSize-1) {
+                i++;
+                newArr[i] = arr[i];
+            } else {
+                break;
+            }
         }
     }
     currentSize--;
