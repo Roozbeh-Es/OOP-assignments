@@ -9,7 +9,7 @@ void extractor(long long n, int* arr) {
 }
 
 long long smallestNumber(int *arr) {
-    long long small = 0; /
+    long long small = 0;
     for (int i = 0; i < 10; i++) {
         if (arr[i] > 0) {
             for (int j = 1; j <= arr[i]; j++) {
