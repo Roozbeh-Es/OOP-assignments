@@ -11,24 +11,20 @@ long long* insert(const long long *arr, int &currentSize,long long value) {
     return newArr;
 }
 
-long long* pop(const long long *arr,int pos,int &currentSize) {
-    long long* newArr = new long long[currentSize-1];
-    for (int i = 0; i < currentSize; i++) {
-        if (i<pos)
-            newArr[i] = arr[i];
-        else if (i==pos) {
-            if(pos!=currentSize-1) {
-                i++;
-                newArr[i] = arr[i];
-            } else {
-                break;
-            }
+long long* pop(const long long* arr, int pos, int& currentSize) {
+
+    long long* newArr = new long long[currentSize - 1];
+    for (int i = 0, j = 0; i < currentSize; i++) {
+        if (i != pos) {
+            newArr[j++] = arr[i];
         }
     }
     currentSize--;
     delete[] arr;
+
     return newArr;
 }
+
 
 int main() {
     long long* arr = nullptr;
