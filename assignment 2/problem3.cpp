@@ -35,7 +35,7 @@ int main() {
         if(s=="exit")
             break;
         if(s.find("insert") == 0) {
-            long long value = std::stoi(s.substr(7, s.length()));
+            long long value = std::stoll(s.substr(7, s.length()));
             arr = insert(arr, currentSize, value);
         }
         else if(s.find("pop") == 0) {
