@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
-int* insert(int *arr, int &currentSize,int value) {
-    int* newArr = new int[currentSize+1];
+long long* insert(const long long *arr, int &currentSize,long long value) {
+    long long* newArr = new long long[currentSize+1];
     for (int i = 0; i < currentSize; i++) {
         newArr[i] = arr[i];
     }
@@ -11,8 +11,8 @@ int* insert(int *arr, int &currentSize,int value) {
     return newArr;
 }
 
-int* pop(int *arr,int pos,int &currentSize) {
-    int* newArr = new int[currentSize-1];
+long long* pop(const long long *arr,int pos,int &currentSize) {
+    long long* newArr = new long long[currentSize-1];
     for (int i = 0; i < currentSize; i++) {
         if (i<pos)
             newArr[i] = arr[i];
@@ -31,7 +31,7 @@ int* pop(int *arr,int pos,int &currentSize) {
 }
 
 int main() {
-    int* arr = nullptr;
+    long long* arr = nullptr;
     int currentSize = 0;
 
     std::string s;
@@ -39,7 +39,7 @@ int main() {
         if(s=="exit")
             break;
         if(s.find("insert") == 0) {
-            int value = std::stoi(s.substr(7, s.length()));
+            long long value = std::stoi(s.substr(7, s.length()));
             arr = insert(arr, currentSize, value);
         }
         else if(s.find("pop") == 0) {
