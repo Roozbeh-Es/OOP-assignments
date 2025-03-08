@@ -46,6 +46,7 @@ int main() {
             for (int i = 0; i < currentSize; i++) {
                 std::cout << arr[i] << " ";
             }
+            std::cout<<std::endl;
         }
         else if(s.find("swap") == 0) {
             std::string trash;
